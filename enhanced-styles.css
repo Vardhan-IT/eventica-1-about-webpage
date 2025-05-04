@@ -132,7 +132,7 @@ section {
 /* Enhanced Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/event-planner-icon.png');
     background-size: cover;
     background-position: center;
     color: white;
