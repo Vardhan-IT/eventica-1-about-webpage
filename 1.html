@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventica - Event Planning Made Easy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="interactive-elements.css">
+    <link rel="stylesheet" href="3d-elements.css">
+    <link rel="stylesheet" href="3d-animation.css">
+    <link rel="stylesheet" href="venue-visualization.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#ff6b6b">
+    <meta name="description" content="Professional event planning services for any occasion">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Eventica">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS icons -->
+    <link rel="apple-touch-icon" href="images/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="images/icon-167x167.png">
+    
+    <!-- Splash screens for iOS -->
+    <link rel="apple-touch-startup-image" href="images/splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash-1668x2224.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+    <link rel="apple-touch-startup-image" href="images/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <!-- In the nav section -->
+        <nav>
+            <div class="logo-container">
+                <img src="images/event-planner-icon.png" alt="Eventica Logo" class="logo-icon">
+                <div class="logo">Eventica</div>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#packages">Packages</a>
+                <a href="#venue-visualization">3D Venue</a>
+                <a href="#contact">Contact</a>
+                <a href="#" id="nav-cart-btn"><i class="fas fa-shopping-cart"></i> Cart <span class="nav-cart-count">0</span></a>
+            </div>
+        </nav>
+        
+        <!-- In the hero section -->
+        <div class="hero-content">
+            <img src="images/event-planner-icon.png" alt="Event Planner" class="event-planner-icon">
+            <h1>Plan Your Perfect Event</h1>
+            <p>Professional event planning services for any occasion</p>
+            <button id="learn-more-btn" class="btn primary-btn">Learn More</button>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <img src="images/event-planner-icon.png" alt="Event Planner" class="event-planner-icon">
+            <h2>About Eventica App</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Eventica is your all-in-one event planning solution. Our platform connects you with professional event planners, vendors, and creative ideas to make your event unforgettable.</p>
+                    <p>From intimate gatherings to large corporate events, we've got you covered with customizable packages and personalized service.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/about-image.jpg" alt="Event planning">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2>Browse Categories</h2>
+            <div class="category-buttons">
+                <button class="category-btn" data-category="birthday" id="birthday-btn">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>Birthday</span>
+                </button>
+                <button class="category-btn" data-category="party" id="party-btn">
+                    <i class="fas fa-glass-cheers"></i>
+                    <span>Party</span>
+                </button>
+                <button class="category-btn" data-category="wedding" id="wedding-btn">
+                    <i class="fas fa-ring"></i>
+                    <span>Wedding</span>
+                </button>
+                <button class="category-btn" data-category="corporate" id="corporate-btn">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Corporate</span>
+                </button>
+                <button class="category-btn" data-category="festival" id="festival-btn">
+                    <i class="fas fa-music"></i>
+                    <span>Festival</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section">
+        <div class="container">
+            <h2>Our Event Packages</h2>
+            <div class="packages-grid" id="packages-container">
+                <!-- Package cards will be dynamically loaded here based on category selection -->
+                <div class="package-card" data-category="party">
+                    <img src="images/elegant-party.jpg" alt="Elegant Party Decor">
+                    <h3>Elegant Party Decor</h3>
+                    <p>Transform your space with our elegant decorations perfect for sophisticated gatherings.</p>
+                    <p class="price">$1,200</p>
+                    <button class="btn view-details-btn">View Details</button>
+                    <button class="btn add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="package-card" data-category="wedding">
+                    <img src="images/wedding-package.jpg" alt="Wedding Package">
+                    <h3>Wedding Package</h3>
+                    <p>Complete wedding planning service including venue, catering, and decoration.</p>
+                    <p class="price">$5,500</p>
+                    <button class="btn view-details-btn">View Details</button>
+                    <button class="btn add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="package-card" data-category="birthday">
+                    <img src="images/birthday-surprise.jpg" alt="Birthday Surprise">
+                    <h3>Birthday Surprise</h3>
+                    <p>Make their special day unforgettable with our birthday surprise package.</p>
+                    <p class="price">$850</p>
+                    <button class="btn view-details-btn">View Details</button>
+                    <button class="btn add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="package-card" data-category="corporate">
+                    <img src="images/corporate-event.jpg" alt="Corporate Event">
+                    <h3>Corporate Event Package</h3>
+                    <p>Professional event management for your company meetings and celebrations.</p>
+                    <p class="price">$3,200</p>
+                    <button class="btn view-details-btn">View Details</button>
+                    <button class="btn add-to-cart-btn">Add to Cart</button>
+                </div>
+                <div class="package-card" data-category="festival">
+                    <img src="images/festival-package.jpg" alt="Festival Package">
+                    <h3>Festival Experience</h3>
+                    <p>Create a memorable festival experience with our comprehensive planning service.</p>
+                    <p class="price">$7,500</p>
+                    <button class="btn view-details-btn">View Details</button>
+                    <button class="btn add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Request Section -->
+    <section id="contact" class="quote-section">
+        <div class="container">
+            <h2>Plan Your Next Event</h2>
+            <form id="quote-form" class="quote-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select id="event-type" name="event-type" required>
+                        <option value="" disabled selected>Select Event Type</option>
+                        <option value="birthday">Birthday</option>
+                        <option value="party">Party</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate</option>
+                        <option value="festival">Festival</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="event-date" name="event-date" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="requirements" name="requirements" placeholder="Special Requirements" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn">Request Quote</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- AI Event Assistant Section -->
+    <section class="ai-assistant-section">
+        <div class="container">
+            <h2>Event Planning Tips</h2>
+            <div class="ai-assistant-container">
+                <div class="ai-chat-window" id="ai-chat-window">
+                    <div class="ai-message">Hello! I'm your AI event planning assistant. How can I help you today?</div>
+                </div>
+                <div class="ai-input-container">
+                    <input type="text" id="ai-input" placeholder="Ask me about event planning...">
+                    <button id="ai-send-btn" class="btn">Send</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#packages" class="bottom-nav-item">
+            <i class="fas fa-list"></i>
+            <span>Categories</span>
+        </a>
+        <a href="#" class="bottom-nav-item" id="event-tips-btn">
+            <i class="fas fa-lightbulb"></i>
+            <span>Event Tips</span>
+        </a>
+        <a href="#" class="bottom-nav-item" id="account-btn">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+        <a href="#" class="bottom-nav-item" id="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+            <span class="cart-count">0</span>
+        </a>
+    </nav>
+
+    <!-- Modal for Package Details -->
+    <div id="package-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="package-details-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Cart -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be displayed here -->
+            </div>
+            <div class="cart-total">
+                <p>Total: <span id="cart-total-amount">$0</span></p>
+                <button class="btn primary-btn" id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Account -->
+    <div id="account-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="account-tabs">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="signup">Sign Up</button>
+            </div>
+            <div class="tab-content" id="login-tab">
+                <form id="login-form">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Login</button>
+                </form>
+            </div>
+            <div class="tab-content" id="signup-tab" style="display: none;">
+                <form id="signup-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="interactive-elements.js"></script>
+    <script src="3d-elements.js"></script>
+    <script src="3d-animation.js"></script>
+    <script src="venue-visualization.js"></script>
+    <script src="navigation.js"></script>
+    <script>
+        // Add event listeners for category buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wedding button click handler
+            const weddingBtn = document.getElementById('wedding-btn');
+            if (weddingBtn) {
+                weddingBtn.addEventListener('click', function() {
+                    window.location.href = 'https://vardhan-it.github.io/eventica-1-wedding-events/';
+                });
+            }
+            
+            // Party button click handler
+            const partyBtn = document.getElementById('party-btn');
+            if (partyBtn) {
+                partyBtn.addEventListener('click', function() {
+                    window.location.href = 'https://vardhan-it.github.io/eventica-1-party-events/';
+                });
+            }
+            
+            // Birthday button click handler
+            const birthdayBtn = document.getElementById('birthday-btn');
+            if (birthdayBtn) {
+                birthdayBtn.addEventListener('click', function() {
+                    window.location.href = 'https://vardhan-it.github.io/eventica-1-birthday-event/';
+                });
+            }
+            
+            // Corporate button click handler
+            const corporateBtn = document.getElementById('corporate-btn');
+            if (corporateBtn) {
+                corporateBtn.addEventListener('click', function() {
+                    window.location.href = 'https://vardhan-it.github.io/eventica-1-corporate-events/';
+                });
+            }
+            
+            // Festival button click handler
+            const festivalBtn = document.getElementById('festival-btn');
+            if (festivalBtn) {
+                festivalBtn.addEventListener('click', function() {
+                    window.location.href = 'https://vardhan-it.github.io/eventica-1-festival-events/';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
